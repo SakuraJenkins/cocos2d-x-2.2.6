@@ -1,0 +1,22 @@
+machine:
+  xcode:
+    version: "7.0"
+
+dependencies:
+  pre:
+    - sudo gem install shenzhen
+
+checkout:
+  post:
+    - git submodule update --init
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./build.sh
+
+general:
+  artifacts:
+    - "samples/Cpp/HelloCpp/proj.ios/build"
+
